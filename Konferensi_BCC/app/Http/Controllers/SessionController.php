@@ -15,8 +15,15 @@ class SessionController extends Controller
     }
 
     public function detail(Request $request, $id)
-{
-    $session = Session::findOrFail($id);
-    return new SessionResource($session); 
-}
+    {
+        $session = Session::findOrFail($id);
+        return new SessionResource($session); 
+    }
+    
+    public function update(Request $request, $id)
+    {
+        $session = Session::findOrFail($id);
+        $session->update($request->all());
+        return new SessionResource($session);
+    }
 }
