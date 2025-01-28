@@ -28,4 +28,10 @@ class ProposalController extends Controller
             'proposal' => new ProposalResource($proposal),
         ], 201);
     }
+
+    public function detail($id)
+    {
+        $proposal = Proposal::findOrFail($id);
+        return new ProposalResource($proposal);
+    }
 }

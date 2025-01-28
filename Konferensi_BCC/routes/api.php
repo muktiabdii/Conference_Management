@@ -3,6 +3,7 @@
 use GuzzleHttp\Middleware;
 use Illuminate\Http\Request;
 use App\Http\Middleware\SessionRole;
+use App\Http\Middleware\ProposalRole;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SessionController;
@@ -21,5 +22,5 @@ Route::get('session/{id}', [SessionController::class, 'detail'])->middleware(['a
 Route::put('session/{id}', [SessionController::class, 'update'])->middleware(['auth:sanctum', SessionRole::class]);
 Route::delete('session/{id}', [SessionController::class, 'delete'])->middleware(['auth:sanctum', SessionRole::class]);
 
-
+Route::get('/proposal/{id}', [ProposalController::class, 'detail'])->middleware('auth:sanctum', ProposalRole::class);
 Route::post('/proposal', [ProposalController::class, 'create'])->middleware('auth:sanctum');
