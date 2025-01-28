@@ -18,3 +18,4 @@ Route::get('/search-user', [UserController::class, 'searchUser'])->middleware('a
 Route::get('session', [SessionController::class, 'index'])->middleware(['auth:sanctum']);
 Route::get('session/{id}', [SessionController::class, 'detail'])->middleware(['auth:sanctum', SessionsAuthor::class]);
 Route::post('session/{id}', [SessionController::class, 'update'])->middleware(['auth:sanctum', SessionsAuthor::class]);
+Route::delete('session/{id}', [SessionController::class, 'delete'])->middleware(['auth:sanctum', SessionsAuthor::class]);

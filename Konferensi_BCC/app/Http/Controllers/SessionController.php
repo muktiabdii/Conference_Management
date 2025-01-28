@@ -14,7 +14,7 @@ class SessionController extends Controller
         return SessionResource::collection($sessions);
     }
 
-    public function detail(Request $request, $id)
+    public function detail($id)
     {
         $session = Session::findOrFail($id);
         return new SessionResource($session); 
@@ -25,5 +25,16 @@ class SessionController extends Controller
         $session = Session::findOrFail($id);
         $session->update($request->all());
         return new SessionResource($session);
+    }
+    
+    public function delete($id)
+    {
+        $session = Session::findOrFail($id);
+        $title = $session->title; 
+    $session->delete(); 
+
+    return response()->json([
+        'message' => "Session with title '{$title}' has been deleted successfully."
+    ], 200);
     }
 }
