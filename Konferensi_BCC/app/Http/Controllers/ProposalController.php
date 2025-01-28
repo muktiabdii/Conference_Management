@@ -41,4 +41,15 @@ class ProposalController extends Controller
         $proposal->update($request->all());
         return new ProposalResource($proposal);
     }
+
+    public function delete($id)
+    {
+        $proposal = Proposal::findOrFail($id);
+        $title = $proposal->title; 
+        $proposal->delete(); 
+
+    return response()->json([
+        'message' => "Proposal with title '{$title}' has been deleted successfully."
+    ], 200);
+    }
 }
