@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Resources\UserResource;
 use Illuminate\Support\Facades\Auth;
@@ -26,5 +27,23 @@ class UserController extends Controller
             'message' => 'Profile updated successfully',
             'user' => new UserResource($user),
         ]);
+    }
+
+    public function searchUser(Request $request)
+    {
+        $existingUser = User::where('name', $request->name)->first();
+
+        if( $existingUser ) {
+            return response()->json([
+                'user' => new UserResource($existingUser),
+            ]);
+        }
+
+        else {
+            return response()->json([
+                'message' => 'User not found',
+            ]);
+        }
+
     }
 }

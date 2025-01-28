@@ -15,7 +15,7 @@ class AuthenticationController extends Controller
     {
         $existingUser = User::where('email', $request->email)->first();
 
-        if ($existingUser) {
+        if ( $existingUser ) {
             return response()->json([
                 'message' => 'The email is already taken.',
                 'user' => new UserResource($existingUser),
