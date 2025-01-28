@@ -13,4 +13,10 @@ class SessionController extends Controller
         $sessions = Session::all();
         return SessionResource::collection($sessions);
     }
+
+    public function detail(Request $request, $id)
+{
+    $session = Session::findOrFail($id);
+    return new SessionResource($session); 
+}
 }

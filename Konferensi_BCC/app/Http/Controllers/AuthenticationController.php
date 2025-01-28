@@ -13,6 +13,13 @@ class AuthenticationController extends Controller
 {
     public function register(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required',
+            'role' => 'required|in:user,admin,event_coordinator'
+        ]);
+
         $existingUser = User::where('email', $request->email)->first();
 
         if ( $existingUser ) {
