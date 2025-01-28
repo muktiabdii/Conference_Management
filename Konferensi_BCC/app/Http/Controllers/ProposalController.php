@@ -34,4 +34,11 @@ class ProposalController extends Controller
         $proposal = Proposal::findOrFail($id);
         return new ProposalResource($proposal);
     }
+
+    public function update(Request $request, $id)
+    {
+        $proposal = Proposal::findOrFail($id);
+        $proposal->update($request->all());
+        return new ProposalResource($proposal);
+    }
 }

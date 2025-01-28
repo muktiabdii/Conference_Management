@@ -24,3 +24,4 @@ Route::delete('session/{id}', [SessionController::class, 'delete'])->middleware(
 
 Route::get('/proposal/{id}', [ProposalController::class, 'detail'])->middleware('auth:sanctum', ProposalRole::class);
 Route::post('/proposal', [ProposalController::class, 'create'])->middleware('auth:sanctum');
+Route::put('/proposal/{id}', [ProposalController::class, 'update'])->middleware('auth:sanctum', ProposalRole::class);
