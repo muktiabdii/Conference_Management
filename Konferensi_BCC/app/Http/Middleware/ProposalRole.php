@@ -19,18 +19,30 @@ class ProposalRole
     {
         $currentUser = Auth::user();
 
-        if( $currentUser->role === 'user' ) {
-            $proposal = Proposal::findOrFail($request->id);
+        if ($currentUser->role === 'user') {
+            if ($request->id) {
+                $proposal = Proposal::find($request->id);
 
-            if( $proposal->author != $currentUser->id ) {
-                return response()->json(['message' => 'Data not found'], 404);
+                if (!$proposal || $proposal->author != $currentUser->id) {
+                    return response()->json(['message' => 'Data not found'], 404);
+                }
             }
 
-            return $next($request);
+            if ($request->isMethod('delete') || $request->isMethod('put') || $request->isMethod('get')) {
+                return $next($request);
+            }
+
+            return response()->json(['message' => 'You don\'t have permission for this action'], 403);
         }
 
-        else {
-            return response()->json(['message' => 'au']);
+        if ($currentUser->role === 'event_coordinator') {
+            if ($request->isMethod('get') || $request->isMethod('put')) {
+                return $next($request);
+            }
+
+            return response()->json(['message' => 'You don\'t have permission to create or delete proposals'], 403);
         }
+
+        return response()->json(['message' => 'Unauthorized'], 403);
     }
 }

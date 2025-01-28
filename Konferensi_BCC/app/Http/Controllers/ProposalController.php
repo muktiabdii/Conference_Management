@@ -9,6 +9,12 @@ use App\Http\Resources\ProposalResource;
 
 class ProposalController extends Controller
 {
+    public function index()
+    {
+        $proposal = Proposal::all();
+        return ProposalResource::collection($proposal);
+    }
+
     public function create(Request $request)
     {
         $request->validate([
@@ -37,7 +43,22 @@ class ProposalController extends Controller
 
     public function update(Request $request, $id)
     {
+        $currentUser = Auth::user();
         $proposal = Proposal::findOrFail($id);
+        
+        if ($currentUser->role === 'event_coordinator') {
+            $request->validate([
+                'status' => 'required|in:pending,accepted,rejected', 
+            ]);
+            
+            $proposal->update(['status' => $request->status]);
+            
+            return response()->json([
+                'message' => "Proposal has been updated to {$proposal->status}",
+            ]);
+        
+        }
+
         $proposal->update($request->all());
         return new ProposalResource($proposal);
     }

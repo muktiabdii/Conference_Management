@@ -31,7 +31,7 @@ class SessionRole
 
         else if( $currentUser->role === 'event_coordinator') {
             if( $request->isMethod('put') ) {
-                return response()->json(['message' => "You don't have a permission to update this session"], 400);
+                return response()->json(['message' => 'You don\'t have a permission to update this session'], 400);
             }
 
             else {
