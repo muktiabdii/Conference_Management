@@ -125,6 +125,7 @@ THEN  => System will delete the account from the system
 
 ## Entities ##
 User : Individuals who interact with the system. They have several roles such as “user”, “event coordinator”, and “admin”.
+
 Atribut :
 - id
 - name
@@ -135,6 +136,7 @@ Atribut :
 - updated_at
 
 Session : Represents a conference sessions.
+
 Atribut : 
 - id
 - title
@@ -148,6 +150,7 @@ Atribut :
 - updated_at
 
 Proposal : Represents a conference session proposals.
+
 Atribut : 
 - id
 - author
@@ -158,6 +161,7 @@ Atribut :
 - updated_at
 
 Feedback : Represents a conference session feedbacks
+
 Atribut :
 - id
 - commenter
@@ -167,6 +171,7 @@ Atribut :
 - updated_at
 
 Session Registration : Represents a conference session registrations.
+
 Atribut :
 - id
 - user_id
