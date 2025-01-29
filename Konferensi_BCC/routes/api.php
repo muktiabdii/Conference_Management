@@ -3,11 +3,13 @@
 use GuzzleHttp\Middleware;
 use Illuminate\Http\Request;
 use App\Http\Middleware\UserRole;
+use App\Http\Middleware\AdminRole;
 use App\Http\Middleware\SessionRole;
 use App\Http\Middleware\FeedbackRole;
 use App\Http\Middleware\ProposalRole;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\ProposalController;
@@ -21,6 +23,8 @@ Route::get('/logout', [AuthenticationController::class, 'logout'])->middleware([
 Route::put('/edit-user', [UserController::class, 'editUser'])->middleware('auth:sanctum');
 Route::get('/search-user', [UserController::class, 'searchUser'])->middleware('auth:sanctum');
 Route::get('/remove/{id}', [UserController::class, 'remove'])->middleware(['auth:sanctum', UserRole::class]);
+
+Route::post('/add-event-coordinator', [AdminController::class, 'createEventCoordinator'])->middleware(['auth:sanctum', AdminRole::class]);
 
 Route::get('session', [SessionController::class, 'index'])->middleware(['auth:sanctum']);
 Route::get('session/{id}', [SessionController::class, 'detail'])->middleware(['auth:sanctum', SessionRole::class]);

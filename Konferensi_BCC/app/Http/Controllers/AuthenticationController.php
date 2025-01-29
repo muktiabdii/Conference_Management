@@ -44,9 +44,6 @@ class AuthenticationController extends Controller
 
     public function login(Request $request)
     {
-
-        $roles = ['user', 'admin', 'event_coordinator'];
-
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
