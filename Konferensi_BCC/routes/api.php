@@ -2,10 +2,12 @@
 
 use GuzzleHttp\Middleware;
 use Illuminate\Http\Request;
+use App\Http\Middleware\FeedbackRole;
 use App\Http\Middleware\SessionRole;
 use App\Http\Middleware\ProposalRole;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\ProposalController;
 use App\Http\Controllers\AuthenticationController;
@@ -27,3 +29,6 @@ Route::get('/proposal/{id}', [ProposalController::class, 'detail'])->middleware(
 Route::post('/proposal', [ProposalController::class, 'create'])->middleware('auth:sanctum');
 Route::put('/proposal/{id}', [ProposalController::class, 'update'])->middleware('auth:sanctum', ProposalRole::class);
 Route::delete('proposal/{id}', [ProposalController::class, 'delete'])->middleware(['auth:sanctum', ProposalRole::class]);
+
+Route::post('/feedback/{session_id}', [FeedbackController::class, 'create'])->middleware('auth:sanctum', FeedbackRole::class);
+Route::delete('feedback/{id}', [FeedbackController::class, 'delete'])->middleware(['auth:sanctum', FeedbackRole::class]);
