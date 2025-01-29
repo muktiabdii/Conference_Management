@@ -2,20 +2,24 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Resources\UserResource;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Routing\Controller;
+
 
 class AdminController extends Controller
 {
-    public function createEventCoordinator (Request $request)
+    public function createEventCoordinator ( Request $request )
     {
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
             'password' => 'required',
         ]);
+
 
         $user = User::create([
             'name' => $request->name,
@@ -24,6 +28,7 @@ class AdminController extends Controller
             'role' => 'event_coordinator', 
         ]);
 
+        
         return response()->json([
             'message' => 'Event Coordinator account has been created successfully.',
             'user' => new UserResource($user),

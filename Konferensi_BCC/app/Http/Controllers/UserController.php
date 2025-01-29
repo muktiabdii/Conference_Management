@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\User;
 use App\Models\Proposal;
 use Illuminate\Http\Request;
@@ -9,21 +10,27 @@ use App\Models\SessionRegist;
 use App\Http\Resources\UserResource;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Routing\Controller;
+
 
 class UserController extends Controller
 {
-    public function editUser(Request $request)
+    public function editUser( Request $request )
     {
         $user = Auth::user();
+
 
         $user->name = $request->name;
         $user->email = $request->email;
 
-        if ($request->password) {
+
+        if ( $request->password ) {
             $user->password = Hash::make($request->password);
         }
 
+
         $user->save();
+
 
         return response()->json([
             'message' => 'Profile updated successfully',
@@ -31,9 +38,11 @@ class UserController extends Controller
         ]);
     }
 
-    public function searchUser(Request $request)
+
+    public function searchUser( Request $request )
     {
         $existingUser = User::where('name', $request->name)->first();
+
 
         if( $existingUser ) {
             return response()->json([
@@ -41,35 +50,43 @@ class UserController extends Controller
             ]);
         }
 
+
         else {
             return response()->json([
                 'message' => 'User not found',
             ]);
         }
-
     }
 
-    public function remove(Request $request, $id)
+
+    public function remove( Request $request, $id )
     {
         $user = User::find($id);
+
 
         if (!$user) {
             return response()->json(['message' => 'User not found.'], 404);
         }
 
+
         $proposal = Proposal::where('author', $id)->first();
 
-    if ($proposal) {
+
+    if ( $proposal ) {
         $proposal->delete();
     }
 
+
     $sessionRegist = SessionRegist::where('user_id', $id)->first();
 
-    if ($sessionRegist) {
+
+    if ( $sessionRegist ) {
         $sessionRegist->delete();
     }
 
+
         $user->delete();
+
 
         return response()->json(['message' => 'User account deleted successfully.'], 200);
     }

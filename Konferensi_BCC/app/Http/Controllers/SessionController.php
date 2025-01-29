@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Http\Resources\SessionResource;
 use App\Models\Session;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+
 
 class SessionController extends Controller
 {
@@ -14,24 +17,28 @@ class SessionController extends Controller
         return SessionResource::collection($sessions);
     }
 
-    public function detail($id)
+
+    public function detail( $id )
     {
         $session = Session::findOrFail($id);
         return new SessionResource($session); 
     }
     
-    public function update(Request $request, $id)
+
+    public function update( Request $request, $id )
     {
         $session = Session::findOrFail($id);
-        $session->update($request->all());
+        $session->update( $request->all() );
         return new SessionResource($session);
     }
     
-    public function delete($id)
+
+    public function delete( $id )
     {
         $session = Session::findOrFail($id);
         $title = $session->title; 
     $session->delete(); 
+
 
     return response()->json([
         'message' => "Session with title '{$title}' has been deleted successfully."
