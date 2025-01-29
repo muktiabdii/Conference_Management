@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Session extends Model
+class SessionRegist extends Model
 {
     use HasFactory;
 
-    protected $table = 'session';
+    protected $table = 'session_registrations';
 
     protected $fillable = [
-        'title', 'description', 'author', 'start_time', 'end_time', 'capacity', 'participants'
+        'user_id', 'session_id', 'registration_at'
     ];
 }
