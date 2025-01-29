@@ -20,6 +20,20 @@ class UserController extends Controller
         $user = Auth::user();
 
 
+        $request->validate([
+            'name' => 'required',  
+            'email' => 'required',
+            'password' => 'nullable', 
+        ]);
+
+
+        if( $request->role ) {
+            return response()->json([
+                'message' => 'You don\'t have permission to edit your role'
+            ], 401);
+        }
+
+
         $user->name = $request->name;
         $user->email = $request->email;
 
@@ -54,7 +68,7 @@ class UserController extends Controller
         else {
             return response()->json([
                 'message' => 'User not found',
-            ]);
+            ], 404);
         }
     }
 

@@ -23,20 +23,33 @@ class FeedbackRole
 
 
             else {
-                return response()->json(['message' => 'Your don\'t have permission to create feedbacks']);
+                return response()->json(['message' => 'Your don\'t have permission to create feedbacks'], 403);
             }
         }
 
 
-        else {
+        else if( $currentUser->role === 'user' ) {
             if( $request->isMethod('post') ) {
                 return $next( $request );
             }
 
 
             else {
-                return response()->json(['message' => 'You don\'t have permission to delete feedbacks']);
+                if( $currentUser != $request->commenter ) {
+                    return response()->json(['message' => 'Feedback has deleted succesfully'
+                    ]);
+                }
+                
+                
+                else {
+                    return response()->json(['message' => 'Data not found'], 404);
+                }
             }
+        }
+        
+        
+        else {
+            return response()->json(['message' => 'You don\'t have permission to create or delete feedbacks'], 403);
         }
     }
 }

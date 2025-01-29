@@ -24,7 +24,7 @@ Route::get('/logout', [AuthenticationController::class, 'logout'])->middleware([
 
 Route::put('/edit-user', [UserController::class, 'editUser'])->middleware('auth:sanctum');
 Route::get('/search-user', [UserController::class, 'searchUser'])->middleware('auth:sanctum');
-Route::get('/remove/{id}', [UserController::class, 'remove'])->middleware(['auth:sanctum', UserRole::class]);
+Route::delete('/remove/{id}', [UserController::class, 'remove'])->middleware(['auth:sanctum', UserRole::class]);
 
 
 Route::post('/add-event-coordinator', [AdminController::class, 'createEventCoordinator'])->middleware(['auth:sanctum', AdminRole::class]);
@@ -38,9 +38,9 @@ Route::delete('session/{id}', [SessionController::class, 'delete'])->middleware(
 
 Route::get('/proposal', [ProposalController::class, 'index'])->middleware('auth:sanctum', ProposalRole::class);
 Route::get('/proposal/{id}', [ProposalController::class, 'detail'])->middleware('auth:sanctum', ProposalRole::class);
-Route::post('/proposal', [ProposalController::class, 'create'])->middleware('auth:sanctum');
+Route::post('/proposal', [ProposalController::class, 'create'])->middleware('auth:sanctum', ProposalRole::class);
 Route::put('/proposal/{id}', [ProposalController::class, 'update'])->middleware('auth:sanctum', ProposalRole::class);
-Route::delete('proposal/{id}', [ProposalController::class, 'delete'])->middleware(['auth:sanctum', ProposalRole::class]);
+Route::delete('proposal/{id}', [ProposalController::class, 'delete'])->middleware('auth:sanctum', ProposalRole::class);
 
 
 Route::post('/feedback/{session_id}', [FeedbackController::class, 'create'])->middleware('auth:sanctum', FeedbackRole::class);

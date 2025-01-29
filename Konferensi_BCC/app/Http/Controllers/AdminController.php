@@ -21,6 +21,17 @@ class AdminController extends Controller
         ]);
 
 
+        $existingUser = User::where('email', $request->email)->first();
+
+
+        if ( $existingUser ) {
+            return response()->json([
+                'message' => 'The email is already taken.',
+                'user' => new UserResource($existingUser),
+            ], 409);
+        }
+
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,

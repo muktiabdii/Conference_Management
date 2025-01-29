@@ -21,7 +21,7 @@ class SessionRole
             $session = Session::findOrFail($request->id);
     
 
-            if( $session->author != $currentUser->id ) {
+            if( !$session || $session->author != $currentUser->id ) {
                 return response()->json(['message' => 'Data not found'], 404);
             }
     
@@ -32,13 +32,18 @@ class SessionRole
 
         else if( $currentUser->role === 'event_coordinator') {
             if( $request->isMethod('put') ) {
-                return response()->json(['message' => 'You don\'t have a permission to update this session'], 400);
+                return response()->json(['message' => 'You don\'t have a permission to update this session'], 403);
             }
-
-
+            
+            
             else {
                 return $next( $request );
             }
+        }
+
+
+        else {
+            return response()->json(['message' => 'You don\'t have a permission to update this session'], 403);
         }
     }
 }

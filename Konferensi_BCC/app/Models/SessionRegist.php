@@ -18,4 +18,15 @@ class SessionRegist extends Model
     protected $fillable = [
         'user_id', 'session_id', 'registration_at'
     ];
+
+
+    public function user(){
+        return $this->hasOne(User::class);
+    }
+
+
+    public function session()
+    {
+        return $this->hasOne(Session::class);
+    }
 }

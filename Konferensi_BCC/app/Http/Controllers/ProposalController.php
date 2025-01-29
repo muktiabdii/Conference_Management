@@ -45,7 +45,9 @@ class ProposalController extends Controller
     public function detail( $id )
     {
         $proposal = Proposal::findOrFail($id);
-        return new ProposalResource($proposal);
+        return response()->json([
+            'proposal' => new ProposalResource($proposal)
+        ]);
     }
 
 
@@ -73,7 +75,9 @@ class ProposalController extends Controller
 
 
         $proposal->update( $request->all() );
-        return new ProposalResource($proposal);
+        return response()->json([
+            'proposal' => new ProposalResource($proposal)
+        ]);    
     }
 
 
@@ -86,6 +90,6 @@ class ProposalController extends Controller
 
     return response()->json([
         'message' => "Proposal with title '{$title}' has been deleted successfully."
-    ], 200);
+    ]);
     }
 }

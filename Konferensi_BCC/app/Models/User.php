@@ -35,4 +35,27 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+
+    public function session(){
+        return $this->hasMany(Session::class);
+    }
+
+
+    public function sessionRegist()
+    {
+        return $this->hasOne(SessionRegist::class);
+    }
+
+
+    public function proposal()
+    {
+        return $this->hasMany(Proposal::class);
+    }
+
+
+    public function feedback()
+    {
+        return $this->hasMany(Feedback::class);
+    }
 }

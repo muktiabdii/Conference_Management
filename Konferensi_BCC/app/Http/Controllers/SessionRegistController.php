@@ -38,7 +38,7 @@ class SessionRegistController extends Controller
         return response()->json([
             'message' => 'Successfully registered for the session.',
             'session' => new SessionResource($session),
-            'registration_at' => $session_regist->registration_at
-        ], 201);
+            'registration_at' => $session_regist->registration_at->format('Y-m-d H:i:s')
+        ]);
     }
 }

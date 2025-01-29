@@ -29,7 +29,7 @@ class AuthenticationController extends Controller
             return response()->json([
                 'message' => 'The email is already taken.',
                 'user' => new UserResource($existingUser),
-            ], 400);
+            ], 409);
         }
 
 
@@ -60,8 +60,8 @@ class AuthenticationController extends Controller
         $user = User::where('email', $request->email)->first();
 
 
-        if (! $user || ! Hash::check($request->password, $user->password)) {
-            return response()->json(['message' => 'login success']);
+        if ( !$user || ! Hash::check($request->password, $user->password )) {
+            return response()->json(['message' => 'Invalid credentials.'], 401);
         }
 
 

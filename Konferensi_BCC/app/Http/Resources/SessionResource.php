@@ -17,7 +17,8 @@ class SessionResource extends JsonResource
             'author' => $this->author,
             'start_time' => $this->start_time,
             'end_time' => $this->end_time,
-            'capacity' => $this->capacity
+            'capacity' => $this->capacity,
+            'feedbacks' => FeedbackResource::collection($this->feedback)
         ];
     }
 }

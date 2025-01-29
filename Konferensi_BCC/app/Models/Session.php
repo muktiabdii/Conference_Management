@@ -18,4 +18,21 @@ class Session extends Model
     protected $fillable = [
         'title', 'description', 'author', 'start_time', 'end_time', 'capacity', 'participants'
     ];
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+
+    public function sessionRegist()
+    {
+        return $this->hasOne(SessionRegist::class);
+    }
+
+
+    public function feedback(){
+        return $this->hasMany(Feedback::class);
+    }
 }

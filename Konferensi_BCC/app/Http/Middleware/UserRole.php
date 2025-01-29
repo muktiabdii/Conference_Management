@@ -22,7 +22,12 @@ class UserRole
 
 
         else {
-            return response()->json(['message' => 'You don\t have permission to remove this account']);
+            if( $request->id != $currentUser->id ) {
+                return response()->json(['message' => 'You don\'t have permission to delete this account'], 403);
+            }
+
+            
+            return $next( $request );
         }
     }
 }
