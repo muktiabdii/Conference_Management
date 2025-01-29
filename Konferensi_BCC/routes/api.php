@@ -2,6 +2,7 @@
 
 use GuzzleHttp\Middleware;
 use Illuminate\Http\Request;
+use App\Http\Middleware\UserRole;
 use App\Http\Middleware\SessionRole;
 use App\Http\Middleware\FeedbackRole;
 use App\Http\Middleware\ProposalRole;
@@ -19,6 +20,7 @@ Route::get('/logout', [AuthenticationController::class, 'logout'])->middleware([
 
 Route::put('/edit-user', [UserController::class, 'editUser'])->middleware('auth:sanctum');
 Route::get('/search-user', [UserController::class, 'searchUser'])->middleware('auth:sanctum');
+Route::get('/remove/{id}', [UserController::class, 'remove'])->middleware(['auth:sanctum', UserRole::class]);
 
 Route::get('session', [SessionController::class, 'index'])->middleware(['auth:sanctum']);
 Route::get('session/{id}', [SessionController::class, 'detail'])->middleware(['auth:sanctum', SessionRole::class]);
