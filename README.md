@@ -116,7 +116,6 @@ THEN  => System will delete the account from the system
 
 ## **👪** Entities and Actors
 
-## Entities ##
 User : Individuals who interact with the system. They have several roles such as “user”, “event coordinator”, and “admin”.
 
 Atribut :
