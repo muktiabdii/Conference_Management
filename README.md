@@ -2,7 +2,7 @@
 
 As someone passionate about backend development, I built this **REST API for a Conference Management Platform** to simplify how conferences are organized and managed. This project is designed to provide a **seamless and efficient** way to handle session management, attendee engagement, and administrative tasks in academic and organizational events.  
 
-This project is also part of the **Freepass BCC 2025 selection process**, where I aim to demonstrate my backend development skills while contributing to a meaningful solution for conference management.  
+This is also **my first API project**, built as part of the **Freepass BCC 2025 selection process**, where I aim to demonstrate my backend development skills while contributing to a meaningful solution for conference management.  
 
 With this API, I aim to **enhance knowledge sharing and professional networking** while ensuring a structured and scalable system for managing conferences. This project is still evolving, and I'm excited to improve it further!  
 
