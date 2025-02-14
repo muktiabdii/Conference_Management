@@ -8,6 +8,7 @@ With this API, I aim to **enhance knowledge sharing and professional networking*
 
 Feel free to explore, contribute, or share your feedback. Let's build something impactful together! 💡🔥
 
+
 ## **⭐** Minimum Viable Product (MVP)
 
 Since I’m building this project as part of the **Freepass BCC 2025 selection process**, I’ve outlined some key features that will enhance its functionality and support **BCC Conference** in the future. Check them out below! 🚀
@@ -29,6 +30,7 @@ Since I’m building this project as part of the **Freepass BCC 2025 selection p
 - Event Coordinator can remove user feedback ✔️
 - Admin can add new event coordinators ✔️
 - Admin can remove users/event coordinators ✔️
+
 
 ## **🌎** Service Implementation
 
@@ -114,7 +116,11 @@ WHEN  => I remove a user or event coordinator
 THEN  => System will delete the account from the system
 ```
 
+
 ## **👪** Entities and Actors
+
+Click on the link below to preview the ERD of this schema:
+https://drive.google.com/file/d/1NblSFX63f1MYItV8Qfa_RdwYuQH2e8Ts/view?usp=sharing
 
 User : Individuals who interact with the system. They have several roles such as “user”, “event coordinator”, and “admin”.
 
@@ -171,6 +177,7 @@ Atribut :
 - registration_at
 - created_at
 - updated_at
+
 
 ## **🧪** API Installation
 **Running**
