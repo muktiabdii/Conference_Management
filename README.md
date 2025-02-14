@@ -1,23 +1,16 @@
-# BCC University
+## Conference Management API 🚀  
 
-### ⚠️⚠️⚠️
+As someone passionate about backend development, I built this **REST API for a Conference Management Platform** to simplify how conferences are organized and managed. This project is designed to provide a **seamless and efficient** way to handle session management, attendee engagement, and administrative tasks in academic and organizational events.  
 
-```
-Submissions from 2024 students will have much higher priority than submissions from 2023, SAP, or higher students.
-Please take note of this before planning to attempt this freepass challenge.
-```
+This project is also part of the **Freepass BCC 2025 selection process**, where I aim to demonstrate my backend development skills while contributing to a meaningful solution for conference management.  
 
-## 💌 Invitation Letter
+With this API, I aim to **enhance knowledge sharing and professional networking** while ensuring a structured and scalable system for managing conferences. This project is still evolving, and I'm excited to improve it further!  
 
-Embracing the ever-evolving conference management landscape, we recognize the need for a seamless and engaging experience in academic meetings especially in the organizational space. We are embarking on an innovative project to transform the way conferences are hosted and experienced, and we want you to be a part of this journey!
-
-We aim to create a dynamic conference platform that revolutionizes session management, attendee engagement, and administrative oversight. Your contributions will help shape the future of conference management. Together, we can create a platform that enhances knowledge sharing and professional networking while maintaining the highest standards of academic discourse.
-
-Join us in revolutionizing the conference experience. Your insights and expertise are key to making this transformation happen!
+Feel free to explore, contribute, or share your feedback. Let's build something impactful together! 💡🔥
 
 ## **⭐** Minimum Viable Product (MVP)
 
-As we have mentioned earlier, we need technology that can support BCC Conference in the future. Please consider these features below:
+Since I’m building this project as part of the **Freepass BCC 2025 selection process**, I’ve outlined some key features that will enhance its functionality and support **BCC Conference** in the future. Check them out below! 🚀
 
 - New user can register account to the system ✔️
 - User can login to the system ✔️
@@ -180,50 +173,7 @@ Atribut :
 - created_at
 - updated_at
 
-## **📘** References
-
-You might be overwhelmed by these requirements. Don't worry, here's a list of some tools that you could use (it's not required to use all of them nor any of them):
-
-1. [Example Project](https://github.com/meong1234/fintech)
-2. [Git](https://try.github.io/)
-3. [Cheatsheets](https://devhints.io/)
-4. [REST API](https://restfulapi.net/)
-5. [Insomnia REST Client](https://insomnia.rest/)
-6. [Test-Driven Development](https://www.freecodecamp.org/news/test-driven-development-what-it-is-and-what-it-is-not-41fa6bca02a2/)
-7. [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
-8. [GraphQL](https://graphql.org/)
-9. [gRPC](https://grpc.io/)
-10. [Docker Compose](https://docs.docker.com/compose/install/)
-
-## **🔪** Accepted Weapons
-
-> BEFORE CHOOSING YOUR LANGUAGE, PLEASE VISIT OUR [CONVENTION](CONVENTION.md) ON THIS PROJECT
->
-> **Any code that did not follow the convention will be rejected!**
->
-> 1. Golang (preferred)
-> 2. Java (preferred)
-> 3. NodeJS
-> 4. PHP
-
-You are welcome to use any libraries or frameworks, but we appreciate if you use the popular ones.
-
-## **🎒** Tasks
-
-```
-The implementation of this project MUST be in the form of a REST, gRPC, or GraphQL API (choose AT LEAST one type).
-```
-
-1. Fork this repository
-2. Follow the project convention
-3. Finish all service implementations
-4. Write the installation guide of your back-end service in the section below
-
-
 ## **🧪** API Installation
-
-> Write how to run your service in local or development environment here. If you use Docker to serve your DBMS or your server, you will receive bonus points for your submission.
-
 **Running**
 1. Cloning repository from github to your local computer
 2. Download composer
@@ -246,18 +196,3 @@ http://freepass-2025.test/Konferensi_BCC/public/api/
 
 ## **📃** API Documentation
 https://documenter.getpostman.com/view/41537989/2sAYQiBnvY
-
-
-## **📞** Contact
-
-Have any questions? You can contact either [Tyo](https://www.instagram.com/nandanatyo/) or [Ilham](https://www.instagram.com/iilham_akbar/).
-
-## **🎁** Submission
-
-Please follow the instructions on the [Contributing guide](CONTRIBUTING.md).
-
-![cheers](https://gifsec.com/wp-content/uploads/2022/10/cheers-gif-11.gif)
-
-> This is not the only way to join us.
->
-> **But, this is the _one and only way_ to instantly pass.**
